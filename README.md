@@ -1,2 +1,2 @@
 # CheckSumr
-This is hash checking tool in under devlopment
+'This is hash checking tool in under devlopment'
