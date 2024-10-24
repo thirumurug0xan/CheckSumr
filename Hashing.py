@@ -8,3 +8,5 @@ class Hashing:
 		#some hashlib function
 	def sha512(self,loc):
 		#some hashlib fuction
+	def md5(self,loc):
+		#some hashlib function
