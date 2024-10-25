@@ -11,3 +11,5 @@ class Hashing:
 		#some hashlib fuction
 	def md5(self,loc):
 		#some hashlib function
+	def sha384(self,loc):
+		#some hashlib function
