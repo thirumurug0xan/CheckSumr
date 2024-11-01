@@ -18,7 +18,7 @@ class Hashing:
         'No_valid':self.no_valid_len} #This is hash table dictionary
     
     @staticmethod 
-    def auto_detect_hash_mode(hash_value): #This is static method since this apply for all objects as common and not per object 
+    def auto_detect_hash_mode(hash_value): #This is a static method, as it applies to all objects universally and not to each object specifically. 
         """Auto-detect the hash mode based on the length of the hash value."""
         hash_length = len(hash_value)
         if hash_length == 32:
@@ -41,7 +41,7 @@ class Hashing:
       raise Exception('Incorrect hash value')
       
     def chunk_file(self,hashfunc):
-        #It reads file as chunked it will reduce the memory consumption for larger files
+        #It reads file as chunked it will help to reduce the memory consumption for larger files
         for i in hashfunc:
             temp_hash = i()
             with open(self.location_of_file, 'rb') as fi:
