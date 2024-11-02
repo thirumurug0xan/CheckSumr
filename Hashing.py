@@ -76,6 +76,6 @@ class Hashing:
         else:
           return self.check_hash(computed_hash)
 
-obj = Hashing('/home/kali/projects/CheckSumr/README.md',
-'1'*56) #Use case: first param describe the file location second param describe the hash of file 
+obj = Hashing('/sdcard/Download/npp.8.7.Installer.x64.exe',
+'23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe') #Use case: first param describe the file location second param describe the hash of file 
 print(obj.verify_hash())
