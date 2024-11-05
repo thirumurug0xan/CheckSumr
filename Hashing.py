@@ -3,19 +3,22 @@
 import hashlib
 
 class Hashing:
+  
     def __init__(self, user_input_location: str, hash_input : str):
         self.location_of_file = user_input_location  # Indicates where the file is located
         self.hash_input = hash_input.strip()  # Location of the hash file
         self.hash_mode = self.auto_detect_hash_mode(hash_input)  # Automatically detect the hash mode
         self.hash_output = []
         self.hash_dict = \
-        {'md5':hashlib.md5,
-        'sha1':hashlib.sha1,
-        'sha224':hashlib.sha224,
-        'sha256_all':[hashlib.sha256,hashlib.sha3_256],
-        'sha384_all':[hashlib.sha384,hashlib.sha3_384],
-        'sha512_all':[hashlib.sha512,hashlib.sha3_512],
-        'No_valid':self.no_valid_len} #This is hash table dictionary
+        {
+          'md5':hashlib.md5,
+          'sha1':hashlib.sha1,
+          'sha224':hashlib.sha224,
+          'sha256_all':[hashlib.sha256,hashlib.sha3_256],
+          'sha384_all':[hashlib.sha384,hashlib.sha3_384],
+          'sha512_all':[hashlib.sha512,hashlib.sha3_512],
+          'No_valid':self.no_valid_len
+        } #This is hash table dictionary
     
     @staticmethod 
     def auto_detect_hash_mode(hash_value): #This is a static method, as it applies to all objects universally and not to each object specifically. 
@@ -76,6 +79,8 @@ class Hashing:
         else:
           return self.check_hash(computed_hash)
 
-obj = Hashing('/sdcard/Download/npp.8.7.Installer.x64.exe',
-'23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe') #Use case: first param describe the file location second param describe the hash of file 
+obj = Hashing(
+  '/home/kali/projects/CheckSumr/README.md',
+  '23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe'
+  ) #Use case: first param describe the file location second param describe the hash of file 
 print(obj.verify_hash())
