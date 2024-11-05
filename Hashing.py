@@ -3,7 +3,7 @@
 import hashlib
 
 class Hashing:
-  
+
     def __init__(self, user_input_location: str, hash_input : str):
         self.location_of_file = user_input_location  # Indicates where the file is located
         self.hash_input = hash_input.strip()  # Location of the hash file
@@ -19,8 +19,8 @@ class Hashing:
           'sha512_all':[hashlib.sha512,hashlib.sha3_512],
           'No_valid':self.no_valid_len
         } #This is hash table dictionary
-    
-    @staticmethod 
+
+    @staticmethod
     def auto_detect_hash_mode(hash_value): #This is a static method, as it applies to all objects universally and not to each object specifically. 
         """Auto-detect the hash mode based on the length of the hash value."""
         hash_length = len(hash_value)
@@ -38,11 +38,11 @@ class Hashing:
             return 'sha512_all'
         else:
             return "No_valid"
-            
+
     def no_valid_len(self):
       #Raises error if the inputed hash is incorrect
-      raise Exception('Incorrect hash value')
-      
+       raise Exception('Incorrect hash value')
+
     def chunk_file(self,hashfunc):
         #It reads file as chunked it will help to reduce the memory consumption for larger files
         for i in hashfunc:
@@ -54,7 +54,7 @@ class Hashing:
                   break
                 temp_hash.update(chunk)
               self.hash_output.append(temp_hash)
-              
+
     def compute_hash(self):
         #Computing hashes based on its type
         hashfunc = self.hash_dict.get(self.hash_mode)
@@ -69,19 +69,15 @@ class Hashing:
       for i in computed_hash:
         if i.hexdigest() == self.hash_input:
           return True
-      return False,i.hexdigest()
-    
+      return False
+
     def verify_hash(self):
         #Verify and validate the hash
         computed_hash = self.compute_hash()
-        '''if str(computed_hash) == type(''):
-          return computed_hash
-        else:
-          return self.check_hash(computed_hash)'''
         return self.check_hash(computed_hash)
 
 obj = Hashing(
   '/home/kali/projects/CheckSumr/README.md',
   #'23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe'
-  '42b1aa6f557edb76a39f0ea5f181635f949f056363a378b3452e9d3a75386cdb') #Use case: first param describe the file location second param describe the hash of file 
+  '2b1aa6f557edb76a39f0ea5f181635f949f056363a378b3452e9d3a75386cdb') #Use case: first param describe the file location second param describe the hash of file 
 print(obj.verify_hash())
