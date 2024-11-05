@@ -69,18 +69,19 @@ class Hashing:
       for i in computed_hash:
         if i.hexdigest() == self.hash_input:
           return True
-      return False
+      return False,i.hexdigest()
     
     def verify_hash(self):
         #Verify and validate the hash
         computed_hash = self.compute_hash()
-        if str(computed_hash) == type(''):
+        '''if str(computed_hash) == type(''):
           return computed_hash
         else:
-          return self.check_hash(computed_hash)
+          return self.check_hash(computed_hash)'''
+        return self.check_hash(computed_hash)
 
 obj = Hashing(
   '/home/kali/projects/CheckSumr/README.md',
-  '23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe'
-  ) #Use case: first param describe the file location second param describe the hash of file 
+  #'23d8e9bde3d08df26626af9978a09f8837d7162fd1accf563248d0eef89006fe'
+  '42b1aa6f557edb76a39f0ea5f181635f949f056363a378b3452e9d3a75386cdb') #Use case: first param describe the file location second param describe the hash of file 
 print(obj.verify_hash())
