@@ -1,5 +1,6 @@
 #Hashing_api
-
+#nigash
+#thirumurugan
 import hashlib
 
 class Hashing:
