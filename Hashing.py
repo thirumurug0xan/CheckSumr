@@ -76,6 +76,6 @@ class Hashing:
         else:
           return self.check_hash(computed_hash)
 
-obj = Hashing('/home/kali/projects/CheckSumr/README.md',
-'1'*56) #Use case: first param describe the file location second param describe the hash of file 
-print(obj.verify_hash())
+# obj = Hashing('/home/kali/projects/CheckSumr/README.md',
+# '1'*56) #Use case: first param describe the file location second param describe the hash of file 
+# print(obj.verify_hash())
