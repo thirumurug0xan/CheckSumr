@@ -3,7 +3,7 @@
 import hashlib
 
 class Hashing:
-    def __init__(self, user_input_location: str, hash_input : str):
+    def __init__(self, user_input_location: str, hash_input = str(), auto_run = True):
         self.location_of_file = user_input_location  # Indicates where the file is located
         self.hash_input = hash_input.strip()  # Location of the hash file
         self.hash_mode = self.auto_detect_hash_mode(hash_input)  # Automatically detect the hash mode
@@ -16,6 +16,10 @@ class Hashing:
         'sha384_all':[hashlib.sha384,hashlib.sha3_384],
         'sha512_all':[hashlib.sha512,hashlib.sha3_512],
         'No_valid':self.no_valid_len} #This is hash table dictionary
+        self.result = None
+        if auto_run:
+            self.result = self.verify_hash()
+
     
     @staticmethod 
     def auto_detect_hash_mode(hash_value): #This is a static method, as it applies to all objects universally and not to each object specifically. 
@@ -75,7 +79,31 @@ class Hashing:
           return computed_hash
         else:
           return self.check_hash(computed_hash)
+    
+    def gen_hash(self,hash_mode:str):
+        #Generating Hash value based on user hash mode
+        self.hash_output.clear()
+        self.hash_mode = hash_mode
+        if hash_mode in ['sha256','sha3_256']:
+            self.hash_mode = 'sha256_all'
+        elif hash_mode in ['sha384','sha3_384']:
+            self.hash_mode = 'sha384_all'
+        elif hash_mode in ['sha512','sha3_512']:
+            self.hash_mode = 'sha512_all'
+        if 'all' in self.hash_mode:
+            if 'a3' in hash_mode:
+                return self.compute_hash()[1].hexdigest()
+            print('hi') #debug
+            return self.compute_hash()[0].hexdigest()
+        return self.compute_hash()[0].hexdigest()
 
+
+#Testcase1
 # obj = Hashing('/home/kali/projects/CheckSumr/README.md',
-# '1'*56) #Use case: first param describe the file location second param describe the hash of file 
+# '1'*56,False) #Use case: first param describe the file location second param describe the hash of file 
 # print(obj.verify_hash())
+
+#Testcase2
+obj = Hashing('/home/kali/Projects/CheckSumr/README.md','a'*56)
+print(obj.result)
+print(obj.gen_hash('md5'))
