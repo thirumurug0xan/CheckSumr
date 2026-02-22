@@ -98,12 +98,12 @@ class Hashing:
         return self.compute_hash()[0].hexdigest()
 
 
-#Testcase1
+#Testcase1 only checking
 # obj = Hashing('/home/kali/projects/CheckSumr/README.md',
 # '1'*56,False) #Use case: first param describe the file location second param describe the hash of file 
 # print(obj.verify_hash())
 
-#Testcase2
+#Testcase2 checking and generating hash
 # obj = Hashing('/home/kali/Projects/CheckSumr/README.md','a'*56)
 # print(obj.result)
-# print(obj.gen_hash('md5')
+# print(obj.gen_hash('md5'))
