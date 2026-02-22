@@ -106,4 +106,4 @@ class Hashing:
 #Testcase2
 # obj = Hashing('/home/kali/Projects/CheckSumr/README.md','a'*56)
 # print(obj.result)
-# print(obj.gen_hash('md5'))
+# print(obj.gen_hash('md5')
