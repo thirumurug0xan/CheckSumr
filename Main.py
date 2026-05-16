@@ -1,5 +1,7 @@
-from Hashing import Hashing
-from GUI import *
+import tkinter as tk
+from GUI import CheckSumrGUI
 
-obj = Hashing('./README.md','1'*64)
-print(obj.verify_hash())
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CheckSumrGUI(root)
+    app.run()

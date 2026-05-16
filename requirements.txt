@@ -1,0 +1,17 @@
+# CheckSumr Requirements
+# This application uses only Python standard library modules
+# No external dependencies required
+
+# Python >= 3.6
+
+# Standard library modules used:
+# - tkinter (GUI framework - usually included with Python)
+# - hashlib (hashing algorithms - included with Python)
+# - os (file operations - included with Python)
+# - filedialog, messagebox, ttk (tkinter components - included with Python)
+
+# Note: If tkinter is not available on your system, install it using:
+# Ubuntu/Debian: sudo apt-get install python3-tk
+# Fedora: sudo dnf install python3-tkinter
+# macOS: tkinter is included with Python from python.org
+# Windows: tkinter is included with Python installer

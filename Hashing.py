@@ -91,9 +91,8 @@ class Hashing:
         elif hash_mode in ['sha512','sha3_512']:
             self.hash_mode = 'sha512_all'
         if 'all' in self.hash_mode:
-            if 'a3' in hash_mode:
+            if '3_' in hash_mode:  # Fixed: was 'a3', now correctly checks for SHA3 variants
                 return self.compute_hash()[1].hexdigest()
-            print('hi') #debug
             return self.compute_hash()[0].hexdigest()
         return self.compute_hash()[0].hexdigest()
 
